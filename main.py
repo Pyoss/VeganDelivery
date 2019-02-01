@@ -473,8 +473,8 @@ def get_item(shop_name, item_name):
 
 
 def load_shops():
-    import test
-    materials.shops = test.get_shops()
+    import spreadsheet_sync
+    materials.shops = spreadsheet_sync.get_shops()
     print('Список магазинов загружен...')
 
 
@@ -498,35 +498,4 @@ def process_query(query, bot):
             description=item.desc,
             input_message_content=types.InputTextMessageContent(message_text=item.name)
         ) for item in suitable_items]))
-
-
-
-#    while 1:
-#        try:
-#            shop = shops[input().lower()]
-#            break
-#        except KeyError:
-#            print('Магазин не найден в базе!')
-#    new_order.shop = shop
-#    goods_text = 'Ассортимент магазина:\n'
-#    goods_list = [value for key, value in shop.item_list.items()]
-#    for item in goods_list:
-#        goods_text += '--------- {}: {}р\n'.format(item.name, item.price)
-#    goods_text += 'Выберите товар...'
-#    print(goods_text)
-#    add_new_item(shop, new_order)
-#    while 1:
-#        print('\n\n\nВведите "готово" или "добавить"...')
-#        result = input()
-#        if result not in ['готово', 'добавить']:
-#            print('Некорректно!')
-#        else:
-#            if result == 'добавить':
-#                add_new_item(shop, new_order, cancellable=True)
-#            else:
-#                break
-#    print('Итоговый заказ:\n{}'.format(new_order.to_string()))
-#    print('Курьеру: {}\nЛиночке: {}\nАде: {}'.format(new_order.get_courier_income(),
-#                                                     new_order.get_manager_income(),
-#                                                     new_order.get_owner_income()))
 
